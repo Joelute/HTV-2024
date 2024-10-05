@@ -1,9 +1,16 @@
-const express = require('express');
+import express from "express";
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 const app = express();
-const PORT = 5000;
+const httpServer = createServer(app);
+const io = new Server(httpServer, { /* options */ });
 
-app.listen(PORT, (error) =>{
+io.on("connection", (socket) => {
+  // ...
+});
+
+httpServer.listen(PORT, (error) =>{
     if(!error)
         console.log("Server is Successfully Running, and App is listening on port "+ PORT)
     else 
