@@ -1,0 +1,5 @@
+tasks:
+  - name: Script Task
+    before: cd ./application
+    command: npm i
+  
