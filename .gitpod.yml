@@ -1,5 +1,14 @@
 tasks:
   - name: Script Task
     before: cd ./application
-    command: npm i
+    command: |
+      npm i
+      npm run dev
+      cd ..
   
+  - name: Setup backend
+    before: cd ./backend
+    command: |
+      npm i
+      node app.js
+      cd ..
